@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Student Feedback System</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(to right, #74ebd5, #acb6e5);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .slide {
+      display: none;
+      background: #ffffff;
+      padding: 2.5rem;
+      border-radius: 16px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+      width: 95%;
+      max-width: 600px;
+      transition: all 0.4s ease-in-out;
+    }
+
+    .slide.active {
+      display: block;
+    }
+
+    h2, h3 {
+      text-align: center;
+      color: #333333;
+      margin-bottom: 1.2rem;
+    }
+
+    input, select, button {
+      width: 100%;
+      padding: 0.8rem;
+      margin: 0.6rem 0;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      font-size: 1rem;
+      transition: border 0.3s ease;
+    }
+
+    input:focus, select:focus {
+      border-color: #0077cc;
+      outline: none;
+    }
+
+    label {
+      font-size: 0.95rem;
+      color: #444;
+    }
+
+    button {
+      background: linear-gradient(45deg, #ff6a00, #ee0979);
+      color: white;
+      border: none;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    button:hover {
+      background: linear-gradient(45deg, #ee0979, #ff6a00);
+    }
+
+    .faculty-feedback {
+      background-color: #f9f9f9;
+      border: 1px solid #eee;
+      border-radius: 12px;
+      padding: 1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .faculty-feedback h3 {
+      margin-top: 0;
+      color: #555;
+      font-weight: 600;
+    }
+
+    .submit-button {
+      background: linear-gradient(to right, #36d1dc, #5b86e5);
+    }
+
+    #thanksName {
+      color: #0077cc;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Slide 1: Login -->
+  <div class="slide active" id="slide-login">
+    <h2>Student Login</h2>
+    <form id="loginForm">
+      <input type="text" id="studentId" placeholder="Student ID" required />
+      <input type="password" id="password" placeholder="Password" required />
+      <button type="submit">Login</button>
+    </form>
+  </div>
+
+  <!-- Slide 2: Student Details -->
+  <div class="slide" id="slide-details">
+    <h2>Enter Your Details</h2>
+    <form id="detailsForm">
+      <input type="text" id="name" placeholder="Full Name" required />
+      <input type="text" id="school" placeholder="School Name" required />
+      <select id="standard-sec" required>
+        <option value="">Select Standard</option>
+        <option value="8">8th</option>
+        <option value="9">9th</option>
+        <option value="10">10th</option>
+        <option value="11">11th</option>
+        <option value="12">12th</option>
+      </select>
+      <button type="submit">Proceed to Feedback</button>
+    </form>
+  </div>
+
+  <!-- Slide 3: Faculty Feedback -->
+  <div class="slide" id="slide-feedback">
+    <h2>Faculty Feedback</h2>
+    <form id="feedbackForm">
+      <div class="faculty-feedback">
+        <h3>Kirankumar - Telugu</h3>
+        <label><input type="radio" name="profA" value="Excellent" required /> Excellent</label>
+        <label><input type="radio" name="profA" value="Good" /> Good</label>
+        <label><input type="radio" name="profA" value="Average" /> Average</label>
+        <label><input type="radio" name="profA" value="Poor" /> Poor</label>
+      </div>
+      <div class="faculty-feedback">
+        <h3>Eswari - Hindi</h3>
+        <label><input type="radio" name="profB" value="Excellent" required /> Excellent</label>
+        <label><input type="radio" name="profB" value="Good" /> Good</label>
+        <label><input type="radio" name="profB" value="Average" /> Average</label>
+        <label><input type="radio" name="profB" value="Poor" /> Poor</label>
+      </div>
+      <div class="faculty-feedback">
+        <h3>Sudhakaran - English</h3>
+        <label><input type="radio" name="profC" value="Excellent" required /> Excellent</label>
+        <label><input type="radio" name="profC" value="Good" /> Good</label>
+        <label><input type="radio" name="profC" value="Average" /> Average</label>
+        <label><input type="radio" name="profC" value="Poor" /> Poor</label>
+      </div>
+      <div class="faculty-feedback">
+        <h3>Mamathadevi - Maths</h3>
+        <label><input type="radio" name="profD" value="Excellent" required /> Excellent</label>
+        <label><input type="radio" name="profD" value="Good" /> Good</label>
+        <label><input type="radio" name="profD" value="Average" /> Average</label>
+        <label><input type="radio" name="profD" value="Poor" /> Poor</label>
+      </div>
+      <div class="faculty-feedback">
+        <h3>Arjun - Science</h3>
+        <label><input type="radio" name="profE" value="Excellent" required /> Excellent</label>
+        <label><input type="radio" name="profE" value="Good" /> Good</label>
+        <label><input type="radio" name="profE" value="Average" /> Average</label>
+        <label><input type="radio" name="profE" value="Poor" /> Poor</label>
+      </div>
+      <div class="faculty-feedback">
+        <h3>Madhusudhanrao - Social</h3>
+        <label><input type="radio" name="profF" value="Excellent" required /> Excellent</label>
+        <label><input type="radio" name="profF" value="Good" /> Good</label>
+        <label><input type="radio" name="profF" value="Average" /> Average</label>
+        <label><input type="radio" name="profF" value="Poor" /> Poor</label>
+      </div>
+      <button type="submit" class="submit-button">Submit Feedback</button>
+    </form>
+  </div>
+
+  <!-- Slide 4: Thank You -->
+  <div class="slide" id="slide-thanks">
+    <h2>Thank You for Your Feedback!</h2>
+    <p style="text-align:center;">We appreciate your input, <span id="thanksName"></span>!</p>
+  </div>
+
+  <script>
+    let studentName = '';
+
+    function showSlide(id) {
+      document.querySelectorAll('.slide').forEach(slide => {
+        slide.classList.remove('active');
+      });
+      document.getElementById(id).classList.add('active');
+    }
+
+    document.getElementById('loginForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const studentId = document.getElementById('studentId').value;
+      const password = document.getElementById('password').value;
+      if (studentId && password) {
+        showSlide('slide-details');
+      } else {
+        alert('Please enter valid credentials.');
+      }
+    });
+
+    document.getElementById('detailsForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      studentName = document.getElementById('name').value.trim();
+      if (studentName !== '') {
+        showSlide('slide-feedback');
+      }
+    });
+
+    document.getElementById('feedbackForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      document.getElementById('thanksName').textContent = studentName;
+      showSlide('slide-thanks');
+    });
+  </script>
+
+</body>
+</html>

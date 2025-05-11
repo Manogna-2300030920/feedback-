@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Student Details</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #e8f0fe;
+      display: flex;
+      height: 100vh;
+      justify-content: center;
+      align-items: center;
+    }
+    .details-container {
+      background-color: #ffffff;
+      padding: 2rem;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    .details-container h2 {
+      margin-bottom: 1rem;
+    }
+    .details-container input, .details-container select {
+      width: 100%;
+      padding: 0.5rem;
+      margin: 0.5rem 0;
+    }
+    .details-container button {
+      width: 100%;
+      padding: 0.5rem;
+      background-color: #1a73e8;
+      color: white;
+      border: none;
+      margin-top: 1rem;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div class="details-container">
+    <h2>Enter Your Details</h2>
+    <form id="detailsForm">
+      <input type="text" id="name" placeholder="Full Name" required />
+      <input type="text" id="school" placeholder="School Name" required />
+      <select id="standard-sec" required>
+        <option value="">Select Standard</option>
+        <option value="8">8th</option>
+        <option value="9">9th</option>
+        <option value="10">10th</option>
+        <option value="11">11th</option>
+        <option value="12">12th</option>
+      </select>
+      <button type="submit">Proceed to Feedback</button>
+    </form>
+  </div>
+
+  <script>
+    document.getElementById('detailsForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      // Store student details as needed
+      // Then redirect to feedback form
+      window.location.href = 'faculty-feedback.html';
+    });
+  </script>
+</body>
+</html>
